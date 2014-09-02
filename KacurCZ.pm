@@ -15,7 +15,8 @@ use Web::Scraper;
 # Constants.
 Readonly::Scalar our $MAINTAINER => 'Michal Spacek <skim@cpan.org>';
 Readonly::Scalar my $KACUR_CZ => 'http://kacur.cz/';
-Readonly::Scalar my $KACUR_CZ_ACTION1 => '/search.asp?doIt=search&menu=675&kategorie=&nazev=&rok=&dosearch=Vyhledat';
+Readonly::Scalar my $KACUR_CZ_ACTION1 => '/search.asp?doIt=search&menu=675&'.
+	'kategorie=&nazev=&rok=&dosearch=Vyhledat';
 
 # Version.
 our $VERSION = 0.01;
