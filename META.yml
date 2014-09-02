@@ -5,7 +5,7 @@ author:
 build_requires:
   English: 0
   ExtUtils::MakeMaker: 6.36
-  File::Object: 0.01
+  File::Object: 0.08
   Test::More: 0
   Test::Pod: 0
   Test::Pod::Coverage: 0
@@ -25,7 +25,13 @@ no_index:
     - inc
     - t
 requires:
-  perl: 5.6.2
+  Encode: 0
+  LWP::UserAgent: 0
+  Readonly: 0
+  Text::Iconv: 0
+  WWW::Search: 0
+  Web::Scraper: 0
+  perl: 5.8.0
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=WWW-Search-KacurCZ
   homepage: https://github.com/tupinek/WWW-Search-KacurCZ
