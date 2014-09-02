@@ -26,8 +26,8 @@ sub native_setup_search {
 	$self->{'_def'} = scraper {
 		process '//div[@class="productItemX"]', 'books[]' => scraper {
 			process '//div/h3/a', 'title' => 'TEXT';
-			process '//div/h3/a', 'detailed_link' => '@href';
-			process '//img', 'image' => '@src';
+			process '//div/h3/a', 'url' => '@href';
+			process '//img', 'cover_url' => '@src';
 			process '//p', 'author_publisher[]' => 'TEXT';
 			process '//span[@class="price"]', 'price' => 'TEXT';
 			return;
@@ -62,8 +62,8 @@ sub native_retrieve_some {
 
 		# Process each book.
 		foreach my $book_hr (@{$books_hr->{'books'}}) {
-			_fix_url($book_hr, 'detailed_link');
-			_fix_url($book_hr, 'image');
+			_fix_url($book_hr, 'url');
+			_fix_url($book_hr, 'cover_url');
 			$book_hr->{'author'}
 				= $book_hr->{'author_publisher'}->[0];
 			$book_hr->{'author'} =~ s/\N{U+00A0}$//ms;
