@@ -1,0 +1,33 @@
+---
+abstract: 'Class for searching http://kacur.cz .'
+author:
+  - 'Michal Špaček <skim@cpan.org>'
+build_requires:
+  English: 0
+  ExtUtils::MakeMaker: 6.36
+  File::Object: 0.01
+  Test::More: 0
+  Test::Pod: 0
+  Test::Pod::Coverage: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.36
+distribution_type: module
+dynamic_config: 1
+generated_by: 'Module::Install version 1.12'
+license: bsd
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: WWW-Search-KacurCZ
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  perl: 5.6.2
+resources:
+  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=WWW-Search-KacurCZ
+  homepage: https://github.com/tupinek/WWW-Search-KacurCZ
+  license: http://opensource.org/licenses/bsd-license.php
+  repository: git://github.com/tupinek/WWW-Search-KacurCZ
+version: 0.01
