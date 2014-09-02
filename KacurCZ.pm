@@ -92,3 +92,108 @@ sub _fix_url {
 1;
 
 __END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+WWW::Search::KacurCZ - Class for searching http://kacur.cz .
+
+=head1 SYNOPSIS
+
+ use WWW::Search::KacurCZ;
+ my $obj = WWW::Search->new('KacurCZ');
+ $obj->native_query($query);
+ my $maintainer = $obj->maintainer; 
+ my $res_hr = $obj->next_result;
+ my $version = $obj->version;
+
+=head1 METHODS
+
+=over 8
+
+=item C<native_setup_search($query)>
+
+ Setup.
+
+=item C<native_retrieve_some()>
+
+ Get data.
+
+=back
+
+=head1 EXAMPLE
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Data::Printer;
+ use WWW::Search::KacurCZ;
+
+ # Arguments.
+ if (@ARGV < 1) {
+         print STDERR "Usage: $0 match\n";
+         exit 1;
+ }
+ my $match = $ARGV[0];
+
+ # Object.
+ my $obj = WWW::Search->new('KacurCZ');
+ $obj->maximum_to_retrieve(1);
+
+ # Search.
+ $obj->native_query($match);
+ while (my $result_hr = $obj->next_result) {
+        p $result_hr;
+ }
+
+ # Output:
+ # Usage: /tmp/1Ytv23doz5 match
+
+ # Output with 'Čapek' argument:
+ # \ {
+ #     author          "Guillaume Apollinaire",
+ #     cover_url       "http://kacur.cz/data/USR_001_OBRAZKY/small_196566.JPG",
+ #     old_price       "2 000 Kč",
+ #     price           "1 000 Kč",
+ #     publisher       "Symposion",
+ #     title           "Kacíř a spol"
+ #     url             "http://kacur.cz/index.asp?menu=1123&record=140698",
+ # }
+
+=head1 DEPENDENCIES
+
+L<Encode>,
+L<LWP::UserAgent>,
+L<Readonly>,
+L<Text::Iconv>,
+L<Web::Scraper>,
+L<WWW::Search>.
+
+=head1 SEE ALSO
+
+L<WWW::Search>.
+
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/WWW-Search-KacurCZ>
+
+=head1 AUTHOR
+
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+BSD license.
+
+=head1 VERSION
+
+0.01
+
+=cut
