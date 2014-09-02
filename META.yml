@@ -21,6 +21,7 @@ meta-spec:
 name: WWW-Search-KacurCZ
 no_index:
   directory:
+    - examples
     - inc
     - t
 requires:
