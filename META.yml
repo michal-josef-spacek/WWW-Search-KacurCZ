@@ -13,7 +13,7 @@ configure_requires:
   ExtUtils::MakeMaker: 6.36
 distribution_type: module
 dynamic_config: 1
-generated_by: 'Module::Install version 1.12'
+generated_by: 'Module::Install version 1.16'
 license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -37,4 +37,4 @@ resources:
   homepage: https://github.com/tupinek/WWW-Search-KacurCZ
   license: http://opensource.org/licenses/bsd-license.php
   repository: git://github.com/tupinek/WWW-Search-KacurCZ
-version: 0.02
+version: '0.02'
