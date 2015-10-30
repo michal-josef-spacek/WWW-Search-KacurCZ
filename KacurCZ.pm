@@ -177,7 +177,17 @@ L<WWW::Search>.
 
 =head1 SEE ALSO
 
-L<WWW::Search>.
+=over
+
+=item L<WWW::Search>
+
+Virtual base class for WWW searches
+
+=item L<Task::WWW::Search::Antiquarian::Czech>
+
+Install the WWW::Search modules for Czech antiquarian bookstores.
+
+=back
 
 =head1 REPOSITORY
 
