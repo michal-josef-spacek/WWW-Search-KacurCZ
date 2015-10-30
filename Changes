@@ -1,4 +1,5 @@
 0.02
+ - Improve LICENSE AND COPYRIGHT section in doc.
  - Remove diacritics from author name in Makefile.PL.
  - Update Module::Install to 1.16 version.
  - Update copyright years.
