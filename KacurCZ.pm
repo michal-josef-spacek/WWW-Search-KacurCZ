@@ -6,6 +6,7 @@ use warnings;
 
 use Encode qw(decode_utf8);
 use LWP::UserAgent;
+use Perl6::Slurp qw(slurp);
 use Readonly;
 use Text::Iconv;
 use Web::Scraper;
@@ -42,38 +43,23 @@ sub _native_setup_search {
 sub _native_retrieve_some {
 	my $self = shift;
 
-	# Query.
-	my $i1 = Text::Iconv->new('utf-8', 'windows-1250');
-	my $query = $i1->convert(decode_utf8($self->{'_query'}));
+	if (defined $self->{search_from_file}) {
+		my $content = slurp($self->{search_from_file});
+		$self->_process_content($content);
+	} else {
+		# Query.
+		my $i1 = Text::Iconv->new('utf-8', 'windows-1250');
+		my $query = $i1->convert(decode_utf8($self->{'_query'}));
 
-	# Get content.
-	my $ua = LWP::UserAgent->new(
-		'agent' => "WWW::Search::KacurCZ/$VERSION",
-	);
-	my $response = $ua->get($KACUR_CZ.$KACUR_CZ_ACTION1."&autor=$query");
+		# Get content.
+		my $ua = LWP::UserAgent->new(
+			'agent' => "WWW::Search::KacurCZ/$VERSION",
+		);
+		my $response = $ua->get($KACUR_CZ.$KACUR_CZ_ACTION1."&autor=$query");
 
-	# Process.
-	if ($response->is_success) {
-		my $i2 = Text::Iconv->new('windows-1250', 'utf-8');
-		my $content = $i2->convert($response->content);
-
-		# Get books structure.
-		my $books_hr = $self->{'_def'}->scrape($content);
-
-		# Process each book.
-		foreach my $book_hr (@{$books_hr->{'books'}}) {
-			_fix_url($book_hr, 'url');
-			_fix_url($book_hr, 'cover_url');
-			$book_hr->{'author'}
-				= $book_hr->{'author_publisher'}->[0];
-			$book_hr->{'author'} =~ s/\N{U+00A0}$//ms;
-			$book_hr->{'publisher'}
-				= $book_hr->{'author_publisher'}->[1];
-			$book_hr->{'publisher'} =~ s/\N{U+00A0}$//ms;
-			delete $book_hr->{'author_publisher'};
-			($book_hr->{'old_price'}, $book_hr->{'price'})
-				= split m/\s*\*\s*/ms, $book_hr->{'price'};
-			push @{$self->{'cache'}}, $book_hr;
+		# Process.
+		if ($response->is_success) {
+			$self->_process_content($response->content);
 		}
 	}
 
@@ -83,9 +69,39 @@ sub _native_retrieve_some {
 # Fix URL to absolute path.
 sub _fix_url {
 	my ($book_hr, $url) = @_;
+
 	if (exists $book_hr->{$url}) {
 		$book_hr->{$url} = $KACUR_CZ.$book_hr->{$url};
 	}
+
+	return;
+}
+
+sub _process_content {
+	my ($self, $content) = @_;
+
+	my $i2 = Text::Iconv->new('windows-1250', 'utf-8');
+	my $utf8_content = $i2->convert($content);
+
+	# Get books structure.
+	my $books_hr = $self->{'_def'}->scrape($utf8_content);
+
+	# Process each book.
+	foreach my $book_hr (@{$books_hr->{'books'}}) {
+		_fix_url($book_hr, 'url');
+		_fix_url($book_hr, 'cover_url');
+		$book_hr->{'author'}
+			= $book_hr->{'author_publisher'}->[0];
+		$book_hr->{'author'} =~ s/\N{U+00A0}$//ms;
+		$book_hr->{'publisher'}
+			= $book_hr->{'author_publisher'}->[1];
+		$book_hr->{'publisher'} =~ s/\N{U+00A0}$//ms;
+		delete $book_hr->{'author_publisher'};
+		($book_hr->{'old_price'}, $book_hr->{'price'})
+			= split m/\s*\*\s*/ms, $book_hr->{'price'};
+		push @{$self->{'cache'}}, $book_hr;
+	}
+
 	return;
 }
 
