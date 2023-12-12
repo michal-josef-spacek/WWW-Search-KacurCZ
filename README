@@ -52,8 +52,8 @@ EXAMPLE
      # }
 
 DEPENDENCIES
-    Encode, LWP::UserAgent, Readonly, Text::Iconv, Web::Scraper,
-    WWW::Search.
+    Encode, LWP::UserAgent, Perl6::Slurp, Readonly, Text::Iconv,
+    Web::Scraper, WWW::Search.
 
 SEE ALSO
     WWW::Search

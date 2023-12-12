@@ -176,6 +176,7 @@ For methods look to L<WWW::Search>.
 
 L<Encode>,
 L<LWP::UserAgent>,
+L<Perl6::Slurp>,
 L<Readonly>,
 L<Text::Iconv>,
 L<Web::Scraper>,
