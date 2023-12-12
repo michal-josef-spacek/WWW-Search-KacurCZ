@@ -1,4 +1,5 @@
 0.03
+ - Sort modules in test.
 
 0.02 2023-12-12T14:03:43+01:00
  - Add constructor test.
