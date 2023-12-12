@@ -21,6 +21,7 @@ SIGNATURE
 t/data/kacur_cz-20231212-Capek.html
 t/WWW-Search-KacurCZ/01-use.t
 t/WWW-Search-KacurCZ/02-version.t
-t/WWW-Search-KacurCZ/03-search_from_file.t
+t/WWW-Search-KacurCZ/03-new.t
+t/WWW-Search-KacurCZ/04-search_from_file.t
 xt/WWW-Search-KacurCZ/01-pod_coverage.t
 xt/WWW-Search-KacurCZ/02-pod.t
