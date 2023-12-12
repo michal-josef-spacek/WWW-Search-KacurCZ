@@ -101,7 +101,8 @@ WWW::Search::KacurCZ - Class for searching http://kacur.cz .
 
 =head1 SYNOPSIS
 
- use WWW::Search::KacurCZ;
+ use WWW::Search;
+
  my $obj = WWW::Search->new('KacurCZ');
  $obj->native_query($query);
  my $maintainer = $obj->maintainer; 
