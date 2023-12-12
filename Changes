@@ -3,6 +3,7 @@
  - Improve LICENSE AND COPYRIGHT section in doc.
  - Improve SEE ALSO section in doc.
  - Move author tests to xt/ directory.
+ - Move bugtracker to github.
  - Remove diacritics from author name in Makefile.PL.
  - Update Module::Install to 1.21 version.
  - Update author github username.
