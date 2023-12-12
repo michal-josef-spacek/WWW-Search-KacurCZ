@@ -19,7 +19,7 @@ Readonly::Scalar my $KACUR_CZ_ACTION1 => '/search.asp?doIt=search&menu=675&'.
 our $VERSION = 0.02;
 
 # Setup.
-sub native_setup_search {
+sub _native_setup_search {
 	my ($self, $query) = @_;
 
 	$self->{'_def'} = scraper {
@@ -39,7 +39,7 @@ sub native_setup_search {
 }
 
 # Get data.
-sub native_retrieve_some {
+sub _native_retrieve_some {
 	my $self = shift;
 
 	# Query.

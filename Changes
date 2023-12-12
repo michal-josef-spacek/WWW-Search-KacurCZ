@@ -6,6 +6,7 @@
  - Move bugtracker to github.
  - Remove diacritics from author name in Makefile.PL.
  - Rename example file to better name.
+ - Rename to new version of WWW::Search internal methods.
  - Update Module::Install to 1.21 version.
  - Update author github username.
  - Update author name.
