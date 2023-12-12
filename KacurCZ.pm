@@ -1,11 +1,9 @@
 package WWW::Search::KacurCZ;
 
-# Pragmas.
 use base qw(WWW::Search);
 use strict;
 use warnings;
 
-# Modules.
 use Encode qw(decode_utf8);
 use LWP::UserAgent;
 use Readonly;
@@ -18,7 +16,6 @@ Readonly::Scalar my $KACUR_CZ => 'http://kacur.cz/';
 Readonly::Scalar my $KACUR_CZ_ACTION1 => '/search.asp?doIt=search&menu=675&'.
 	'kategorie=&nazev=&rok=&dosearch=Vyhledat';
 
-# Version.
 our $VERSION = 0.02;
 
 # Setup.
@@ -127,11 +124,9 @@ WWW::Search::KacurCZ - Class for searching http://kacur.cz .
 
 =head1 EXAMPLE
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Data::Printer;
  use WWW::Search::KacurCZ;
 
