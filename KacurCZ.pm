@@ -127,6 +127,8 @@ WWW::Search::KacurCZ - Class for searching http://kacur.cz .
 
 =head1 EXAMPLE
 
+=for comment filename=fetch_kacur_capek.pl
+
  use strict;
  use warnings;
 

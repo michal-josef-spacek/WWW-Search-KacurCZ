@@ -5,6 +5,7 @@
  - Move author tests to xt/ directory.
  - Move bugtracker to github.
  - Remove diacritics from author name in Makefile.PL.
+ - Rename example file to better name.
  - Update Module::Install to 1.21 version.
  - Update author github username.
  - Update author name.
