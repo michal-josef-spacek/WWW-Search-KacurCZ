@@ -21,6 +21,7 @@ our $VERSION = 0.02;
 # Setup.
 sub native_setup_search {
 	my ($self, $query) = @_;
+
 	$self->{'_def'} = scraper {
 		process '//div[@class="productItemX"]', 'books[]' => scraper {
 			process '//div/h3/a', 'title' => 'TEXT';
@@ -33,6 +34,7 @@ sub native_setup_search {
 		return;
 	};
 	$self->{'_query'} = $query;
+
 	return 1;
 }
 
