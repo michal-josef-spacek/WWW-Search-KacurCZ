@@ -5,6 +5,7 @@
  - Move author tests to xt/ directory.
  - Remove diacritics from author name in Makefile.PL.
  - Update Module::Install to 1.21 version.
+ - Update author github username.
  - Update copyright years.
 
 0.01 2014-09-02T23:38:42+02:00
