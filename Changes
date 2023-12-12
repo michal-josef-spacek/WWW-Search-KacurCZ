@@ -1,5 +1,6 @@
 0.02
  - Add support for testing from saved file.
+ - Fix doc METHODS.
  - Fix use lib '.' in Makefile.PL.
  - Improve LICENSE AND COPYRIGHT section in doc.
  - Improve SEE ALSO section in doc.

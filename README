@@ -11,11 +11,7 @@ SYNOPSIS
      my $version = $obj->version;
 
 METHODS
-    "native_setup_search($query)"
-             Setup.
-
-    "native_retrieve_some()"
-             Get data.
+    For methods look to WWW::Search.
 
 EXAMPLE
      use strict;

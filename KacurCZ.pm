@@ -129,17 +129,7 @@ WWW::Search::KacurCZ - Class for searching http://kacur.cz .
 
 =head1 METHODS
 
-=over 8
-
-=item C<native_setup_search($query)>
-
- Setup.
-
-=item C<native_retrieve_some()>
-
- Get data.
-
-=back
+For methods look to L<WWW::Search>.
 
 =head1 EXAMPLE
 
