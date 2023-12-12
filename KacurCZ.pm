@@ -17,7 +17,7 @@ Readonly::Scalar my $KACUR_CZ => 'http://kacur.cz/';
 Readonly::Scalar my $KACUR_CZ_ACTION1 => '/search.asp?doIt=search&menu=675&'.
 	'kategorie=&nazev=&rok=&dosearch=Vyhledat';
 
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 # Setup.
 sub _native_setup_search {
@@ -214,6 +214,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.02
+0.03
 
 =cut
